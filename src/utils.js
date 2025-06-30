@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken';
 
 const PRIVATE_KEY= process.env.PRIVATE_KEY || "secret_key";
 
-export const createHast = (password) => {
+export const createHash = (password) => {
     return bcrypt.hashSync(password, bcrypt.genSaltSync(10));
 };
 

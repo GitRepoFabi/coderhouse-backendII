@@ -1,6 +1,6 @@
 import { Strategy } from "passport-local";
 import userModel from "../../models/user.model.js";
-import { createHast, isValidPassword, generateToken } from "../../utils.js";
+import { createHash, isValidPassword, generateToken } from "../../utils.js";
 
 async function verifyRegister(req, username, password, done) {
   
@@ -17,7 +17,7 @@ async function verifyRegister(req, username, password, done) {
       last_name,
       age,
       cart,
-      password: createHast(password),
+      password: createHash(password),
       email: username
     }
 
