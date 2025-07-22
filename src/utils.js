@@ -1,7 +1,10 @@
 import bcrypt from "bcrypt";
 import jwt from 'jsonwebtoken';
+import config from "./config/index.js";
 
-const PRIVATE_KEY= process.env.PRIVATE_KEY || "secret_key";
+const { PRIVATE_KEY } = config;
+
+//const PRIVATE_KEY= process.env.PRIVATE_KEY || "secret_key";
 
 export const createHash = (password) => {
     return bcrypt.hashSync(password, bcrypt.genSaltSync(10));
