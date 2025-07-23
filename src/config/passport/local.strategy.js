@@ -1,6 +1,6 @@
 import { Strategy } from "passport-local";
 import userModel from "../../models/user.model.js";
-import { createHash, isValidPassword, generateToken } from "../../utils.js";
+import { createHash, isValidPassword, generateToken, registerMail } from "../../utils.js";
 
 async function verifyRegister(req, username, password, done) {
   
@@ -22,6 +22,8 @@ async function verifyRegister(req, username, password, done) {
     }
 
     const newDoc = await userModel.create(newUser);
+    const envioMail = await registerMail(newUser.email);
+
     return done(null, newDoc)
 
   } catch (error) {

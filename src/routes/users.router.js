@@ -43,7 +43,7 @@ router.post("/", async (req, res) => {
 //Actualiza el usuario por el Id:
 router.put('/:id', async (req, res) => {
     const id = req.params.id;
-    const { first_name, last_name, email, age, password, cart } = req.body;
+    const { first_name, last_name, email, age, password, cart, role } = req.body;
 
     try {
         const usuarioEditar = await userModel.findById(id);
@@ -58,6 +58,7 @@ router.put('/:id', async (req, res) => {
         if (age) usuarioEditar.age = age;
         if (password) usuarioEditar.password = createHash(password);
         if (cart) usuarioEditar.cart = cart;
+        if (role) usuarioEditar.role = role;
 
         const usuarioActualizado = await usuarioEditar.save();
 
