@@ -1,7 +1,7 @@
 import { Router } from "express";
-import { createHash } from '../utils.js';
 import userController from '../controllers/users.controllers.js'
-import userModel from "../DAO/models/user.model.js";
+//import { createHash } from '../utils.js';
+//import userModel from "../DAO/models/user.model.js";
 
 const UserController = new userController();
 const router = Router();

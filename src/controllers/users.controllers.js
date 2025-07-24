@@ -1,5 +1,6 @@
 import UserServices from '../services/users.services.js';
 import { createHash } from '../utils.js';
+import UserDTO from "../dto/UserDTO.js";
 
 
 const userServices = new UserServices();
@@ -33,7 +34,9 @@ class UserController {
             return res.status(500).json({ status: "error", message: "view console" })
         }
 
-        res.json({ status: "created", payload: response })
+        //res.json({ status: "created", payload: response })
+
+        res.status(201).json({status: "created", payload: new UserDTO(response)})
     }
 
     async updateUser(req, res) {
