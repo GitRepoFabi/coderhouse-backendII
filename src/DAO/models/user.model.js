@@ -1,4 +1,4 @@
-import mongoose, { SchemaType, SchemaTypes } from "mongoose";
+import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({
     first_name: {
@@ -23,8 +23,8 @@ const userSchema = new mongoose.Schema({
         required: true
     },
     cart: {
-        type: SchemaTypes.ObjectId,
-        ref: "cart"
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "cars"
     },
     role: {
         type: String,

@@ -1,13 +1,16 @@
 import { Router } from "express";
 import { createHash } from '../utils.js';
-import userModel from "../models/user.model.js";
+import userController from '../controllers/users.controllers.js'
+import userModel from "../DAO/models/user.model.js";
 
+const UserController = new userController();
 const router = Router();
 
 //Lista todos los usuarios
-router.get("/", async (_, res) => {
-    res.json(await userModel.find());
-});
+// router.get("/", async (_, res) => {
+//     //res.json(await userModel.find());
+// });
+router.get("/",UserController.getUsers)
 
 //Lista el usuario enviado por Id
 router.get("/:id", async (req, res) => {
