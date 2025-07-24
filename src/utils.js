@@ -63,3 +63,37 @@ export const registerMail = async (usuario) => {
     console.error("Error in verify");
   }
 }
+
+
+export const sendRecoveryMail = async (email, token) => {
+  const transporter = nodemailer.createTransport({
+    host: "smtp.gmail.com",
+    port: 587,
+    secure: false,
+    auth: {
+      user: EMAIL,
+      pass: PASS,
+    },
+    tls: {
+      rejectUnauthorized: false
+    }
+  });
+
+  const recoveryUrl = `http://localhost:3000/reset-password?token=${token}`;
+
+
+  const connection = await transporter.verify();
+  if (connection) {
+    const info = await transporter.sendMail({
+      from: "'Prueba Backend II' <prueba@gmail.com>",
+      to: email,
+      subject: 'Recuperación de contraseña',
+      html: `<p>Haz clic en el siguiente enlace para restablecer tu contraseña:</p>
+           <a href="${recoveryUrl}">${recoveryUrl}</a>`
+    });
+
+    //console.log({ info });
+  } else {
+    console.error("Error in verify");
+  }
+}
