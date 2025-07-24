@@ -1,4 +1,4 @@
-import UserDAO from "../repository/DAO/users.dao.js";
+import UserDAO from "../repository/DAO/mongo/users.dao.js";
 import { createHash } from "../utils.js";
 
 const userDAO = new UserDAO();
