@@ -1,6 +1,6 @@
 import passport from "passport";
 import { registerLocal, loginLocal } from "./local.strategy.js"
-import userModel from "../../repository/DAO/mongo/models/user.model.js";
+import userModel from "../../DAO/mongo/models/user.model.js";
 import { jwtLocal } from "./jwt.strategy.js";
 
 const initializedPassport = () => {
