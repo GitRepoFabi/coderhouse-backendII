@@ -34,8 +34,6 @@ class UserController {
             return res.status(500).json({ status: "error", message: "view console" })
         }
 
-        //res.json({ status: "created", payload: response })
-
         res.status(201).json({status: "created", payload: new UserDTO(response)})
     }
 

@@ -5,8 +5,6 @@ import nodemailer from "nodemailer";
 
 const { PRIVATE_KEY, EMAIL, PASS } = config;
 
-//const PRIVATE_KEY= process.env.PRIVATE_KEY || "secret_key";
-
 export const createHash = (password) => {
   return bcrypt.hashSync(password, bcrypt.genSaltSync(10));
 };
@@ -57,8 +55,6 @@ export const registerMail = async (usuario) => {
       <p> Muchas gracias por su preferencia! </p>
       `,
     });
-
-    //console.log({ info });
   } else {
     console.error("Error in verify");
   }
@@ -92,7 +88,6 @@ export const sendRecoveryMail = async (email, token) => {
            <a href="${recoveryUrl}">${recoveryUrl}</a>`
     });
 
-    //console.log({ info });
   } else {
     console.error("Error in verify");
   }

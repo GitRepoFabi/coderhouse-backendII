@@ -32,9 +32,6 @@ class UserService {
         const usuarioActualizado = await usuarioEditar.save();
 
         return usuarioActualizado;
-
-        //res.json({status:"sucess", payload: usuarioActualizado})
-
     }
 
     async deleteUser(uid) {

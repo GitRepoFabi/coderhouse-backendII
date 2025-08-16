@@ -1,6 +1,6 @@
 import { Strategy } from "passport-local";
 import userModel from "../../DAO/mongo/models/user.model.js";
-import { createHash, isValidPassword, generateToken, registerMail } from "../../utils.js";
+import { createHash, isValidPassword, registerMail } from "../../utils.js";
 
 async function verifyRegister(req, username, password, done) {
   
