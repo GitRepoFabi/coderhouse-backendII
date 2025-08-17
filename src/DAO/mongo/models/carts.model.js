@@ -19,5 +19,9 @@ const carsSchema = new mongoose.Schema({
     }
 });
 
-// Ahora, con mongoose.model, generamos el modelo funcional de un carrito conectado a la BD.
-export const carsModel = mongoose.model(carsCollection, carsSchema);
+
+
+const carsModel = mongoose.model(carsCollection, carsSchema);
+
+
+export default carsModel;
