@@ -56,4 +56,10 @@ router.get("/current", passport.authenticate("jwt", { session: false }), (req, r
   res.send({ status: "success", payload: req.user });
 });
 
+// Perfil protegido
+router.get("/profile", (req, res) => {
+  if (!req.user) return res.status(401).send("No autenticado");
+  res.send({ message: "Perfil del usuario", user: req.user });
+});
+
 export default router;

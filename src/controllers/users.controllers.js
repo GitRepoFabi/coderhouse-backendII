@@ -22,13 +22,13 @@ class UserController {
     }
 
     async saveUser(req, res) {
-        let { first_name, last_name, email, age, password } = req.body;
+        let { first_name, last_name, email, age, password, role} = req.body;
 
         if (!first_name || !last_name || !email || !age || !password) {
             return res.status(400).send({ status: "Error", error: "Falta completar algún dato" })
         }
 
-        const response = await userServices.createUser({ first_name, last_name, email, age, password: createHash(password) })
+        const response = await userServices.createUser({ first_name, last_name, email, age, password: createHash(password), role })
 
         if (!response) {
             return res.status(500).json({ status: "error", message: "view console" })
