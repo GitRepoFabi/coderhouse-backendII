@@ -1,23 +1,23 @@
-import UserDAO from "../DAO/mongo/users.dao.js";
+import UserRepository from "../repository/user.repository.js";
 import { createHash } from "../utils.js";
 
-const userDAO = new UserDAO();
+const userRepository = new UserRepository();
 
 class UserService {
     async getUsers() {
-        return await userDAO.getUsers();
+        return await userRepository.getUsers();
     }
 
     async getUserById(uid) {
-        return await userDAO.getUserById(uid);
+        return await userRepository.getUserById(uid);
     }
 
     async createUser(body) {
-        return await userDAO.saveUser(body);
+        return await userRepository.createUser(body)
     }
 
     async updateUser(id, body) {
-        const usuarioEditar = await userDAO.getUserById(id);
+        const usuarioEditar = await userRepository.getUserById(id);
         const { first_name, last_name, email, age, password, cart, role } = body;
 
         // Solo actualiza si los campos están presentes en el body
@@ -35,7 +35,7 @@ class UserService {
     }
 
     async deleteUser(uid) {
-        return await userDAO.deleteUser(uid);
+        return await userRepository.deleteUser(uid);
     }
 }
 
