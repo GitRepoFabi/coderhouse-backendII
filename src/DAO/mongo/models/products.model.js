@@ -1,9 +1,6 @@
-import mongoose from 'mongoose';
-
-const productCollection = 'products'; //Así es como se llamará la colección en nuestra base de datos.
+import mongoose from "mongoose";
 
 const productSchema = new mongoose.Schema({
-
     //Aquí procederemos a escribir todas las propiedades que queremos que tenga un producto en nuestra BD
     title: String,
     description: String,
@@ -18,5 +15,32 @@ const productSchema = new mongoose.Schema({
     thumbnails: Array
 })
 
-// Ahora, con mongoose.model, generamos el modelo funcional de un producto conectado a la BD.
-export const productModel = mongoose.model(productCollection, productSchema);
+const productModel = mongoose.model("product", productSchema);
+
+export default productModel;
+
+
+
+
+
+// import mongoose from 'mongoose';
+
+// const productSchema = new mongoose.Schema({
+
+//     //Aquí procederemos a escribir todas las propiedades que queremos que tenga un producto en nuestra BD
+//     title: String,
+//     description: String,
+//     code: {
+//         type: Number,
+//         unique: true
+//     },
+//     price: Number,
+//     stock: Number,
+//     category: String,
+//     status: Boolean,
+//     thumbnails: Array
+// })
+
+// const productModel = mongoose.model("products",productSchema);
+
+// export default productModel;
