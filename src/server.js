@@ -10,6 +10,7 @@ import sessionRouter from "./routes/session.router.js";
 import productsRouter from "./routes/products.router.js";
 import cartsRouter from "./routes/carts.router.js";
 import viewRouter from "./routes/views.router.js";
+import ticketRouter from "./routes/tickets.router.js";
 import cookieParser from "cookie-parser";
 import initializedPassport from "./config/passport/config.js";
 
@@ -45,6 +46,7 @@ server.use(express.static(path.join(import.meta.dirname, 'public')));
 server.use("/", viewRouter);
 server.use("/api/users", usersRouter);
 server.use("/api/session", sessionRouter);
+server.use("/api/tickets", ticketRouter);
 
 //Rutas protegidas según roles
 server.use("/api/products", productsRouter);

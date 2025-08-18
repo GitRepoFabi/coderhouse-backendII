@@ -10,7 +10,7 @@ const carsSchema = new mongoose.Schema({
             {
                 product: {
                     type: mongoose.Schema.Types.ObjectId, //Aplico el link al esquema products
-                    ref: "products"
+                    ref: "product"
                 },
                 quantity: Number
             },
