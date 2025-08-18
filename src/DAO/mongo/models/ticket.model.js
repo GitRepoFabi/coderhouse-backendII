@@ -27,6 +27,9 @@ const ticketSchema = new mongoose.Schema({
   datetime: {
     type: Date,
     default: Date.now
+  },
+  status: {
+    type: String
   }
 });
 

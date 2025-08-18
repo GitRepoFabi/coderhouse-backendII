@@ -12,6 +12,8 @@ class TicketController {
         try {
             const userId = req.user;
 
+            const status = "pending"
+
             if (!userId){
                  return res.status(404).json({ error: "Debe loguearse para generar el ticket" });
             }
@@ -41,7 +43,7 @@ class TicketController {
             const ticketNumber = Date.now() + Math.floor(Math.random() * 10000 + 1);
 
             // Crear ticket
-            const response = await ticketService.createTicket({ number:ticketNumber, user:user._id, products:productos, totalPrice })
+            const response = await ticketService.createTicket({ number:ticketNumber, user:user._id, products:productos, totalPrice, status})
             
             if (!response) {
                 return res.status(500).json({ status: "error", message: "view console" })
