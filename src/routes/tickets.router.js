@@ -6,5 +6,6 @@ const router = Router();
 
 // Generar ticket para un usuario
 router.post("/:userId", ticketController.generateTicket);
+router.post("/resolve/:tid", ticketController.resolverTicket);
 
 export default router;

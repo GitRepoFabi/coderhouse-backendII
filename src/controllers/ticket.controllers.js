@@ -14,8 +14,8 @@ class TicketController {
 
             const status = "pending"
 
-            if (!userId){
-                 return res.status(404).json({ error: "Debe loguearse para generar el ticket" });
+            if (!userId) {
+                return res.status(404).json({ error: "Debe loguearse para generar el ticket" });
             }
 
             // Busco usuario
@@ -43,8 +43,8 @@ class TicketController {
             const ticketNumber = Date.now() + Math.floor(Math.random() * 10000 + 1);
 
             // Crear ticket
-            const response = await ticketService.createTicket({ number:ticketNumber, user:user._id, products:productos, totalPrice, status})
-            
+            const response = await ticketService.createTicket({ number: ticketNumber, user: user._id, products: productos, totalPrice, status })
+
             if (!response) {
                 return res.status(500).json({ status: "error", message: "view console" })
             }
@@ -62,6 +62,13 @@ class TicketController {
             console.error("Error generando ticket:", error);
             res.status(500).json({ error: "Error interno del servidor" });
         }
+    }
+
+    async resolverTicket(req, res) {
+        const { tid } = req.params;
+        const { resolve } = req.query;
+        const result = await ticketService.resolveTicket(tid, resolve);
+        res.json({ status: "success", message: "Ticket resolved", result })
     }
 }
 
