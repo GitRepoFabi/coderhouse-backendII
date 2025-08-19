@@ -149,7 +149,7 @@ Aquí vemos como se cumple todo el ciclo completo de poder generar un ticket par
 
 1. Clonar el repositorio:
 ```bash
-git clone https://github.com/GitRepoFabi/coderhouse-backendII.git
+git clone https://github.com/GitRepoFabi/coderhouse-backendII.git .
 ```
 2. Instalar las dependencias:
 ```bash
@@ -169,4 +169,11 @@ PASS=
 4. Iniciar proyecto:
 ```bash
 npm start
+```
+Tener en cuenta que para correr correctamente el proyecto se necesita tener instalado Node con la versión 22 o superior a la misma.
+
+Para saber la versión de node instalada deberías correr el siguiente comando:
+
+```bash
+node --version
 ```
